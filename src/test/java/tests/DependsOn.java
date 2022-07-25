@@ -24,8 +24,7 @@ public class DependsOn  {
         driver=new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
-    }
-    @AfterClass
+    }    @AfterClass
     public void tearDown(){
         driver.close();
     }
@@ -33,11 +32,13 @@ public class DependsOn  {
     public void test01(){
         driver.get("https://www.amazon.com");
     }
-    @Test (dependsOnMethods ="test01")
+
+    @Test (dependsOnMethods="test01")
     public void test02(){
         WebElement aramaKutusu= driver.findElement(By.id("twotabsearchtextbox"));
         aramaKutusu.sendKeys("Nutella"+ Keys.ENTER);
     }
+
     @Test(dependsOnMethods ="test02")
     public void test03(){
         WebElement sonucYaziElementi=driver.findElement(By.xpath("//div[@class='a-section a-spacing-small a-spacing-top-small']"));

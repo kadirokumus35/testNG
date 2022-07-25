@@ -1,0 +1,21 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<!--  Bir xml dosyasi ile projemizde istedigimiz testleri, packageleri
+classlari veya test methodlarini calistirabiliriz
+Bunun icin yapmamiz gereken; suite den baslayip
+test hiyerarşisine uygun olarak calisicak tum testleri
+xml formatinda yazmamizdir
+Eger istedigimiz tum testlere ulasmak icin birden fazla hiyerarsi olusturmamiz gerekirse
+sonraki hiyerarsileri uygun adimdan baslatmamiz gerekir
+
+-->
+<suite name="istenen classlari calistirma">
+
+    <test name="classlar">
+        <classes>
+            <class name="tests.Before_and_After"></class>
+            <class name="tests.DependsOn"></class>
+        </classes>
+
+    </test>
+
+</suite>

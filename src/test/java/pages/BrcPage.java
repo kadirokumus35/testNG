@@ -23,5 +23,8 @@ public  WebElement password;
    @FindBy (xpath = "//button[@class='btn btn-primary']")
     public WebElement ikinciLogin;
 
+   @FindBy (xpath = "//button[@id='dropdown-basic-button']")
+    public WebElement kullaniciProfil;
+
 
 }

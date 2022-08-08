@@ -5,9 +5,16 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 import utilities.TestBase;
 
-public class SoftAssert extends TestBase {
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import static java.util.Collections.sort;
+
+public class Soft_Assert_ extends TestBase {
 
     //1. “http://zero.webappsecurity.com/” Adresine gidin
     // 2. Sign in butonuna basin
@@ -54,15 +61,27 @@ public class SoftAssert extends TestBase {
         Select select=new Select(ddm);
         select.selectByVisibleText("Eurozone (euro)");
         // 9. soft assert kullanarak "Eurozone (Euro)" secildigini test edin
-        org.testng.asserts.SoftAssert softAssert=new org.testng.asserts.SoftAssert();
+        SoftAssert softAssert=new SoftAssert();
         String actualOption=select.getFirstSelectedOption().getText();
         String expectedOption="Eurozone (Euro)";
-        softAssert.assertEquals(actualOption,expectedOption,"secilen optional uygun degil");
-        // 10. soft assert kullanarak DropDown listesinin su secenekleri oldugunu test edin
+        softAssert.assertEquals(actualOption,expectedOption,"secilen option uygun degil");
+
+        // 10. soft assert kullanarak DropDown listesinin su secenekleri oldugunu test edin ;
 
         // "Select One", "Australia (dollar)", "Canada (dollar)","Switzerland (franc)","China (yuan)",
         // "Denmark (krone)","Eurozone (euro)","Great Britain (pound)","Hong Kong (dollar)","Japan (yen)",
         // "Mexico (peso)","Norway (krone)","New Zealand (dollar)","Sweden (krona)","Singapore (dollar)",
         // "Thailand (baht)"
+        List<WebElement> optionList= select.getOptions();
+        List<String> strList=new ArrayList<String>();
+        for (WebElement each:optionList) {
+            strList.add(each.getText());
+        }
+
+        List<String> actualList=new ArrayList<String>(Arrays.asList("Select One", "Australia (dollar)", "Canada (dollar)","Switzerland (franc)", "China (yuan)", "Denmark (krone)", "Eurozone (euro)", "Great Britain (pound)", "Hong Kong (dollar)", "Japan (yen)", "Mexico (peso)", "Norway (krone)", "New Zealand (dollar)", "Sweden (krona)", "Singapore (dollar)","Thailand (baht)"));
+        sort(strList);
+        sort(actualList);
+        softAssert.assertEquals(strList,actualList,"secenekler mevcut degil");
+        softAssert.assertAll();
     }
 }

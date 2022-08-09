@@ -1,4 +1,4 @@
-package tests;
+package tests.pagages;
 
 import org.testng.annotations.Test;
 import utilities.Driver;

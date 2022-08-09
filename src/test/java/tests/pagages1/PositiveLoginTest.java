@@ -1,4 +1,4 @@
-package tests;
+package tests.pagages1;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -8,13 +8,15 @@ import utilities.Driver;
 
 public class PositiveLoginTest {
 
-    BrcPage brcPage = new BrcPage();
+    BrcPage brcPage;
 
     @Test
-    public void positiveLogin(){
+    public void positiveLogin() throws InterruptedException {
+        brcPage = new BrcPage();
         //       https://www.bluerentalcars.com/ adresine git
         Driver.getDriver().get(ConfigReader.getProperty("brcUrl"));
         //      login butonuna bas
+        Thread.sleep(3000);
         brcPage.ilkLogin.click();
         //  test data valid user email
         brcPage.eMailAdress.sendKeys(ConfigReader.getProperty("brcValidEmail"));

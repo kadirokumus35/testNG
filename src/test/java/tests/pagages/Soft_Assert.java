@@ -1,4 +1,4 @@
-package tests;
+package tests.pagages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;

@@ -5,8 +5,9 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import utilities.TestBase;
+import utilities.TestBaseCross;
 
-public class Before_and_After extends TestBase {
+public class Before_and_After extends TestBaseCross {
 
     //JUnit te @BeforeClass ve @AfterClass notasyonuna sahip methodlar static olmak zorundaydı
     // testNG bu zorunluluktan kurtarıyor bizi

@@ -2,8 +2,9 @@ package tests;
 
 import org.testng.annotations.Test;
 import utilities.TestBase;
+import utilities.TestBaseCross;
 
-public class Notations extends TestBase {
+public class Notations extends TestBaseCross {
 
     @Test
     public  void amazon(){
